@@ -1,6 +1,6 @@
 import 'U2DynArray.dart';
 import 'U2ListStrings.dart';
-import 'package:intl/intl.dart';
+//import 'package:intl/intl.dart';
 
 //
 //  funcions per tractar string al estil universe
@@ -90,6 +90,7 @@ class U2StringUtils {
     } else if (num1 < 0) {
       return cadena.substring(pos2 + num2, -1 * num2);
     }
+    return '';
   }
 
   static String u2Left(String cadena, int num1) {
@@ -132,51 +133,57 @@ class U2StringUtils {
   }
 
   static int DateTime2u2Date(DateTime dt) {
-    if (dt == null) {
-      return null;
-    }
+    //if (dt == null) {
+    //  return null;
+    //}
     return ((dt.millisecondsSinceEpoch ~/ 86400000) + 732);
   }
 
 // hora solar
-  num DateTime2u2Time(DateTime dt) {
-    if (dt == null) {
-      return null;
-    }
+  static num DateTime2u2Time(DateTime dt) {
+    //if (dt == null) {
+    //  return null;
+    //}
     return ((dt.millisecondsSinceEpoch % 86400000) / 1000);
   }
 
-  DateTime u2Date2DateTime(int num1) {
-    if (num1 == null) {
-      return null;
-    }
+  static DateTime u2Date2DateTime(int num1) {
+    //if (num1 == null) {
+      //throw new Exception('Invalid Date');
+      //return null;
+    //}
     int v = (num1 - 732) * 86400000;
     return (new DateTime.fromMillisecondsSinceEpoch(v));
   }
 
-  DateTime u2Time2DateTime(num num1) {
-    if (num1 == null) {
-      return null;
-    }
-    int v = num1 * 1000;
+  static DateTime u2Time2DateTime(num num1) {
+    //if (num1 == null) {
+      //throw new Exception('Invalid time');
+      // return null;
+    //}
+    int v = (num1 * 1000).toInt();
     return (new DateTime.fromMillisecondsSinceEpoch(v));
   }
 
-  String DateTime2u2TADA(DateTime dt) {
-    if (dt == null) {
-      return null;
-    }
-    DateFormat formatter = new DateFormat('yyyyMMdd');
-    return formatter.format(dt);
+  static String DateTime2u2TADA(DateTime dt) {
+    //if (dt == null) {
+    //  return null;
+    //}
+    //DateFormat formatter = new DateFormat('yyyyMMdd');
+    //return formatter.format(dt);
+    return (dt.year.toString()+dt.month.toString().padLeft(2,'0')+dt.day.toString().padLeft(2,'0'));
   }
 
-  String DateTime2u2HHMMSS(DateTime dt) {
-    if (dt==null) {
-      return null;
-    }
-    DateFormat formatter = new DateFormat('HHmmss');
-    return formatter.format(dt);
+  static String DateTime2u2HHMMSS(DateTime dt) {
+    //if (dt==null) {
+    //  return null;
+    //}
+    //DateFormat formatter = new DateFormat('HHmmss');
+    //return formatter.format(dt);
+    return (dt.hour.toString().padLeft(2,'0')+dt.minute.toString().padLeft(2,'0')+dt.second.toString().padLeft(2,'0'));
   }
+
+
 
 /*
 var u2TADA2DateTime = function(sTada){
