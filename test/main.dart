@@ -19,4 +19,6 @@ void main() {
   print(U2StringUtils.u2Time().toString());
   print(U2StringUtils.DateTime2u2Time(today).toString());
 
+  print(today.timeZoneName);
+  print(today.timeZoneOffset);
 }
