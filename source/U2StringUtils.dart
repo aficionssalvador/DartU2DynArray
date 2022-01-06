@@ -76,7 +76,8 @@ class U2StringUtils {
   static String u2Substr(String cadena, int pos, int num1) {
     int pos2 = pos;
     int num2 = num1;
-    if (cadena == null || cadena.length <= 0) {
+    int l = cadena.length;
+    if (cadena == null || l <= 0) {
       return '';
     }
     if (pos == null || pos < 1) {
@@ -86,9 +87,19 @@ class U2StringUtils {
       num2 = 1;
     }
     if (num1 > 0) {
-      return cadena.substring(pos2 - 1, num2);
+      return cadena.substring(pos2 - 1, pos2-1+num2);
     } else if (num1 < 0) {
-      return cadena.substring(pos2 + num2, -1 * num2);
+      
+
+
+
+
+      // todo : no funciona be
+
+
+
+
+      return cadena.substring(l - pos2 + 1 + num2, l - pos2 - 1 - num2);
     }
     return '';
   }
@@ -183,6 +194,9 @@ class U2StringUtils {
     return (dt.hour.toString().padLeft(2,'0')+dt.minute.toString().padLeft(2,'0')+dt.second.toString().padLeft(2,'0'));
   }
 
+  static int u2Index(String cadena, String subcadena) {
+    return (cadena.indexOf(subcadena)+1);
+  }
 
 
 /*
