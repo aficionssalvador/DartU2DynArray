@@ -219,11 +219,5 @@ if ((sHHMMSS===undefined)||(sHHMMSS==null)||(typeof sHHMMSS != 'string')) { retu
 var s = sHHMMSS.substring(0,2)+":"+sTada.substring(2,4)+":"+sTada.substring(4,6)
 return new Date('1970-01-01T'+s)
 }
-
-var u2Index = function(cadena, subcadena){
-if ((cadena===undefined)||(cadena==null)||(typeof cadena != 'string')||(cadena=="")) { return 0; }
-if ((subcadena===undefined)||(subcadena==null)||(typeof subcadena != 'string')||(subcadena=="")) { return 0; }
-return cadena.indexOf(subcadena)+1
-}
 */
 }
