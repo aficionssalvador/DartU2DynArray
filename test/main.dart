@@ -38,4 +38,20 @@ void main() {
   print(U2StringUtils.u2Index("abc","b").toString());
   print(U2StringUtils.u2Substr("abcdef",2,3)); 
   print(U2StringUtils.u2Substr("abcdef",2,-1)); 
+  print(U2StringUtils.u2Substr("abcdef",2,-2)); 
+  print(U2StringUtils.u2Substr("abcdef",1,-1)); 
+  print(U2StringUtils.u2Substr("abcdef",1,-2)); 
+  print(U2StringUtils.u2Substr("abcdef",1,-3)); 
+  print(U2StringUtils.u2Substr("abcdef",1,-4)); 
+  print(U2StringUtils.u2Substr("abcdef",1,-5)); 
+  print(U2StringUtils.u2Substr("abcdef",1,-6)); 
+  print(U2StringUtils.u2Substr("abcdef",1,-7)); 
+  print(U2StringUtils.u2Substr("abcdef",1,1)); 
+  print(U2StringUtils.u2Substr("abcdef",1,2)); 
+  print(U2StringUtils.u2Substr("abcdef",1,3)); 
+  print(U2StringUtils.u2Substr("abcdef",1,4)); 
+  print(U2StringUtils.u2Substr("abcdef",1,5)); 
+  print(U2StringUtils.u2Substr("abcdef",1,6)); 
+  print(U2StringUtils.u2Substr("abcdef",1,7)); 
+  print(U2StringUtils.u2Substr("abcdef",3,7)); 
 }
