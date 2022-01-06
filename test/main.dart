@@ -21,4 +21,21 @@ void main() {
 
   print(today.timeZoneName);
   print(today.timeZoneOffset);
+
+  var b = new U2DynArray("");
+  b.replace("a",2,3,4);
+  b.replace("c3",1,2,3);
+  b.replace("c2b",1,2,2);
+  b.replace("c1",1,2,1);
+  b.insertSubValue("c2a",1,2,2);
+  print(b.extractAll());
+  b.replace("a",2,0,0);
+  print(b.extractAll());
+  b.deleteSubValue(1,2,3);
+  b.deleteSubValue(1,2,1);
+  print(b.extractAll());
+  print(U2StringUtils.u2Index("abc","B").toString()); 
+  print(U2StringUtils.u2Index("abc","b").toString());
+  print(U2StringUtils.u2Substr("abcdef",2,3)); 
+  print(U2StringUtils.u2Substr("abcdef",2,-1)); 
 }
