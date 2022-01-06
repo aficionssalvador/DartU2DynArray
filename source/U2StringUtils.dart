@@ -87,19 +87,27 @@ class U2StringUtils {
       num2 = 1;
     }
     if (num1 > 0) {
-      return cadena.substring(pos2 - 1, pos2-1+num2);
+      int start = pos2 - 1;
+      //print("start: ${start.toString()}");
+      int end = pos2-1+num2;
+      if (start<0) start=0;
+      if (end>l) end=l;
+      if ((start<0)||(start>l)||(end<0)||(end>l)) {
+        return "";
+      }
+      return cadena.substring(start, end);
     } else if (num1 < 0) {
-      
-
-
-
-
-      // todo : no funciona be
-
-
-
-
-      return cadena.substring(l - pos2 + 1 + num2, l - pos2 - 1 - num2);
+      //print("l: ${l.toString()}");
+      int start = l - pos2 + 1 + num2;
+      //print("start: ${start.toString()}");
+      int end = l - pos2 +1;
+      //print("end: ${end.toString()}");
+      if (start<0) start=0;
+      if (end>l) end=l;
+      if ((start<0)||(start>l)||(end<0)||(end>l)) {
+        return "";
+      }
+      return cadena.substring(start, end);
     }
     return '';
   }
