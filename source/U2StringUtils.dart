@@ -141,16 +141,12 @@ class U2StringUtils {
 //
 
   static int u2Date() {
-    return ((DateTime
-        .now()
-        .millisecondsSinceEpoch ~/ 86400000) + 732);
+    return ((DateTime.now().millisecondsSinceEpoch ~/ 86400000) + 732);
   }
 
 // hora solar
   static num u2Time() {
-    return ((DateTime
-        .now()
-        .millisecondsSinceEpoch % 86400000) / 1000);
+    return ((DateTime.now().millisecondsSinceEpoch % 86400000) / 1000);
   }
 
   static int DateTime2u2Date(DateTime dt) {
