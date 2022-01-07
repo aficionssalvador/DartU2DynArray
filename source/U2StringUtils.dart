@@ -120,6 +120,7 @@ class U2StringUtils {
     if (num1 == null || num1 <= 0) {
       num2 = 1;
     }
+    if (num1 > cadena.length) num2 = cadena.length;
     return cadena.substring(0, num2);
   }
 
@@ -131,6 +132,7 @@ class U2StringUtils {
     if (num1 == null || num1 <= 0) {
       num2 = 1;
     }
+    if (num1 > cadena.length) num2 = cadena.length;
     return cadena.substring(cadena.length - num2, num2);
   }
 
@@ -206,18 +208,34 @@ class U2StringUtils {
     return (cadena.indexOf(subcadena)+1);
   }
 
+  static DateTime u2TADA2DateTime(String tada) {
+    int vyyyy = 0;
+    int vMM = 0;
+    int vdd = 0;
+    if (tada.length >= 8) {
+      vyyyy = int.parse(tada.substring(0,4));
+      vMM = int.parse(tada.substring(4,6));
+      vdd = int.parse(tada.substring(6,8));
+    }
+    return new DateTime(vyyyy,vMM,vdd);
+  }
 
-/*
-var u2TADA2DateTime = function(sTada){
-if ((sTada===undefined)||(sTada==null)||(typeof sTada != 'string')) { return null; }
-var s = sTada.substring(0,4)+"-"+sTada.substring(4,6)+"-"+sTada.substring(6,8)
-return new Date(s)
-}
-
-var u2HHMMSS2DateTime = function(sHHMMSS){
-if ((sHHMMSS===undefined)||(sHHMMSS==null)||(typeof sHHMMSS != 'string')) { return null; }
-var s = sHHMMSS.substring(0,2)+":"+sTada.substring(2,4)+":"+sTada.substring(4,6)
-return new Date('1970-01-01T'+s)
-}
-*/
+  static DateTime u2HHMMSS2DateTime(String sHHmmss){
+    int vHH = 0;
+    int vmm = 0;
+    int vss = 0;
+    if (sHHmmss.length>=2) vHH = int.parse(sHHmmss.substring(0,2));
+    if (sHHmmss.length>=4) vmm = int.parse(sHHmmss.substring(2,4));
+    if (sHHmmss.length>=6) vss = int.parse(sHHmmss.substring(4,6));
+    return new DateTime(0,0,0,vHH,vmm,vss);
+  }
+  static String DateTime2DataS(DateTime dt) {
+    return (dt.day.toString().padLeft(2,'0')+'/'+dt.month.toString().padLeft(2,'0')+'/'+dt.year.toString());
+  }
+  static String DateTime2HoraMinS(DateTime dt) {
+    return (dt.hour.toString().padLeft(2,'0')+':'+dt.minute.toString().padLeft(2,'0'));
+  }
+  static String DateTime2HoraMinSecS(DateTime dt) {
+    return (dt.hour.toString().padLeft(2,'0')+':'+dt.minute.toString().padLeft(2,'0')+':'+dt.second.toString().padLeft(2,'0'));
+  }
 }
