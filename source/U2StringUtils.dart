@@ -229,12 +229,33 @@ class U2StringUtils {
     if (sHHmmss.length>=6) vss = int.parse(sHHmmss.substring(4,6));
     return new DateTime(0,0,0,vHH,vmm,vss);
   }
+
+  static DateTime u2TADAHHMMSS2DateTime(String tada, String sHHmmss) {
+    int vyyyy = 0;
+    int vMM = 0;
+    int vdd = 0;
+    if (tada.length >= 8) {
+      vyyyy = int.parse(tada.substring(0,4));
+      vMM = int.parse(tada.substring(4,6));
+      vdd = int.parse(tada.substring(6,8));
+    }
+    int vHH = 0;
+    int vmm = 0;
+    int vss = 0;
+    if (sHHmmss.length>=2) vHH = int.parse(sHHmmss.substring(0,2));
+    if (sHHmmss.length>=4) vmm = int.parse(sHHmmss.substring(2,4));
+    if (sHHmmss.length>=6) vss = int.parse(sHHmmss.substring(4,6));
+    return new DateTime(vyyyy,vMM,vdd,vHH,vmm,vss);
+  }
+
   static String DateTime2DataS(DateTime dt) {
     return (dt.day.toString().padLeft(2,'0')+'/'+dt.month.toString().padLeft(2,'0')+'/'+dt.year.toString());
   }
+
   static String DateTime2HoraMinS(DateTime dt) {
     return (dt.hour.toString().padLeft(2,'0')+':'+dt.minute.toString().padLeft(2,'0'));
   }
+
   static String DateTime2HoraMinSecS(DateTime dt) {
     return (dt.hour.toString().padLeft(2,'0')+':'+dt.minute.toString().padLeft(2,'0')+':'+dt.second.toString().padLeft(2,'0'));
   }
