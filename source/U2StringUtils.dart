@@ -206,8 +206,8 @@ class U2StringUtils {
 
   static DateTime u2TADA2DateTime(String tada) {
     int vyyyy = 0;
-    int vMM = 0;
-    int vdd = 0;
+    int vMM   = 0;
+    int vdd   = 0;
     if (tada.length >= 8) {
       vyyyy = int.parse(tada.substring(0,4));
       vMM = int.parse(tada.substring(4,6));
@@ -228,8 +228,8 @@ class U2StringUtils {
 
   static DateTime u2TADAHHMMSS2DateTime(String tada, String sHHmmss) {
     int vyyyy = 0;
-    int vMM = 0;
-    int vdd = 0;
+    int vMM   = 0;
+    int vdd   = 0;
     if (tada.length >= 8) {
       vyyyy = int.parse(tada.substring(0,4));
       vMM = int.parse(tada.substring(4,6));
